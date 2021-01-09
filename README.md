@@ -21,7 +21,8 @@ In this tutorial we're going to be building a very simple HTTP API with two endp
 This tutorial assumes that you will be using `stack` to build your Haskell project.
 
 A `package.yaml` file you can copy to ensure you have the right dependencies and language
-extensions can be: TODO
+extensions can be:
+https://github.com/cdimitroulas/simple-json-api-haskell/blob/main/package.yaml
 
 ## Our domain types
 
