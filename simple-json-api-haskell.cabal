@@ -1,0 +1,43 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: db4f1bea5d10b577db586e0aefbaf449993140a1ad2fb63add5e5573057c628a
+
+name:           simple-json-api-haskell
+version:        0.1.0.0
+homepage:       https://github.com/cdimitroulas/simple-json-api-haskell#readme
+bug-reports:    https://github.com/cdimitroulas/simple-json-api-haskell/issues
+author:         Christos Dimitroulas
+maintainer:     Christos Dimitroulas
+copyright:      2021 Christos Dimitroulas
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/cdimitroulas/simple-json-api-haskell
+
+executable simple-json-api-haskell-exe
+  main-is: Main.hs
+  other-modules:
+      Db
+      User
+      Paths_simple_json_api_haskell
+  hs-source-dirs:
+      src
+  default-extensions: DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , containers
+    , mtl
+    , scotty
+    , text
+  default-language: Haskell2010
