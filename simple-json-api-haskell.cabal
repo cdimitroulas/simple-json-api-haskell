@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: db4f1bea5d10b577db586e0aefbaf449993140a1ad2fb63add5e5573057c628a
+-- hash: e8bced45ba0e119af019fb5f0a34ca2a2c6e765feafd528fe84f91168ba5331a
 
 name:           simple-json-api-haskell
 version:        0.1.0.0
@@ -31,7 +31,11 @@ executable simple-json-api-haskell-exe
       Paths_simple_json_api_haskell
   hs-source-dirs:
       src
-  default-extensions: DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving OverloadedStrings
+  default-extensions:
+      DeriveGeneric
+      DerivingStrategies
+      GeneralizedNewtypeDeriving
+      OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       aeson
