@@ -3,6 +3,7 @@ module Db
     getUserStore,
     insertUser,
     deleteUser,
+    getUsers,
     mkDb,
     UserStore (..),
   )
@@ -52,3 +53,6 @@ insertUser userStore usr = do
 -- deleteUser updates our database by deleting the relevant user data
 deleteUser :: UserStore -> Int -> IO ()
 deleteUser usrStore uid = modifyIORef' (unUsrStore usrStore) (Map.delete uid)
+
+getUsers :: UserStore -> IO (Map Int DbUsr)
+getUsers = readIORef . unUsrStore

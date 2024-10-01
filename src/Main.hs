@@ -2,8 +2,10 @@ module Main where
 
 import Control.Monad.IO.Class
 import qualified Db
-import User (CreateUserRequest (..))
+import qualified Data.Map as M
+import User (CreateUserRequest (..), usrFromDbUser)
 import Web.Scotty
+import Db (getUsers)
 
 main :: IO ()
 main = do
@@ -35,6 +37,16 @@ main = do
       -- Delete the relevant user
       -- Same as with the user creation, we need to use liftIO here.
       liftIO $ Db.deleteUser db userId
+
+    -- Listen for GET requests on the "/users" endpoint
+    get "/users" $
+      do
+        usersMap <- liftIO $ getUsers db
+
+        let users = map usrFromDbUser (M.toList usersMap)
+
+        -- Return the user ID of the new user in the HTTP response
+        json users
 
 -- Our createUser function simply deals with constructing a DbUsr value and passes it
 -- to the Db.insertUser function

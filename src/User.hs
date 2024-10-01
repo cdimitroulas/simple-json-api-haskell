@@ -3,11 +3,19 @@ module User where
 import Data.Aeson
 import Data.Text
 import GHC.Generics
+import Db (DbUsr(..))
 
 data User = User
-  { userId :: Text,
+  { userId :: Int,
     userName :: Text
-  }
+  } deriving (Generic)
+
+-- We define a ToJSON instance for User because we will want
+-- to return users in HTTP responses.
+instance ToJSON User
+
+usrFromDbUser :: (Int, DbUsr) -> User
+usrFromDbUser (usrId, dbUsr) = User usrId dbUsr.dbUsrName
 
 -- Data type which describes the request which will be received to create
 -- a user
